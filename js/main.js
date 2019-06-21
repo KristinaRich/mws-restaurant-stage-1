@@ -171,7 +171,7 @@ createRestaurantHTML = (restaurant) => {
   figCaption.appendChild(imgText);
   image.appendChild(figCaption);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('header');
   name.innerHTML = restaurant.name;
   li.append(name);
 
