@@ -57,10 +57,16 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
-        if (response) {
+        /*KR - firstly used code below*/
+        /*if (response) {
           return response;
         }
-        return fetch(event.request);
+        return fetch(event.request);*/
+        /*KR - code replaced according to the hint on
+        * https://codelabs.developers.google.com/codelabs/offline/#7
+        Child pages store the cache now; there was previously no cache saved.
+        */
+        return response || fetch(event.request);
       })
   			.catch(function(err) {
   				console.log("Data caching error: ", err);
